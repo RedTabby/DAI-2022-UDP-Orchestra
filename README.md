@@ -118,24 +118,24 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 
 ## Task 2: implement a "musician" Node.js application
 
-| #        | Topic                                                                               |
-| -------- | ----------------------------------------------------------------------------------- |
+| #        | Topic                                                                              |
+|----------|------------------------------------------------------------------------------------|
 | Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-|          | _Enter your response here..._                                                       |
-| Question | What is **npm**?                                                                    |
-|          | _Enter your response here..._                                                       |
-| Question | What is the `npm install` command?                                                  |
-|          | _Enter your response here..._                                                       |
-| Question | How can we use the `https://www.npmjs.com/` web site?                               |
-|          | _Enter your response here..._                                                       |
-| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?               |
-|          | _Enter your response here..._                                                       |
-| Question | In Node.js, how can we execute a function on a **periodic** basis?                  |
-|          | _Enter your response here..._                                                       |
-| Question | In Node.js, how can we **emit UDP datagrams**?                                      |
-|          | _Enter your response here..._                                                       |
-| Question | In Node.js, how can we **access the command line arguments**?                       |
-|          | _Enter your response here..._                                                       |
+|          | _Enter your response here..._                                                      |
+| Question | What is **npm**?                                                                   |
+|          | _Enter your response here..._                                                      |
+| Question | What is the `npm install` command?                                                 |
+|          | _Enter your response here..._                                                      |
+| Question | How can we use the `https://www.npmjs.com/` web site?                              |
+|          | _Enter your response here..._                                                      |
+| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?              |
+|          | _Enter your response here..._                                                      |
+| Question | In Node.js, how can we execute a function on a **periodic** basis?                 |
+|          | we can create async function. After we just have to call it in an setintervalle function setInterval and choose the frequence of call. |
+| Question | In Node.js, how can we **emit UDP datagrams**?                                     |
+|          | _Enter your response here..._                                                      |
+| Question | In Node.js, how can we **access the command line arguments**?                      |
+|          | with the process function.                                                         |
 
 ## Task 3: package the "musician" app in a Docker image
 
