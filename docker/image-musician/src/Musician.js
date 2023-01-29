@@ -1,6 +1,6 @@
 /**
  * Musician.js
- * @author Rachel Leupi, Michaël Gogniat
+ * @author Rachel Leupi
  */
 
 //___________________________________________________________Function
@@ -65,7 +65,13 @@ if(process.argv.length < 3){
 // Let's create a datagram socket. We will use it to send our UDP datagrams
     const s = dgram.createSocket('udp4');
 
-    const payload = JSON.stringify(sound);
+// Create a UUID
+    const { v4: uuidv4 } = require('uuid');
+    const id = uuidv4();
+
+    const music = { uuid : id, sound : sound};
+
+    const payload = JSON.stringify(music);
     message = new Buffer(payload);
 
 // Call the async function.

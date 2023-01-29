@@ -108,7 +108,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | _Insert your diagram here..._                                                                                                                                           |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
-|          | _Enter your response here..._                                                                                                                                           |
+|          | the musician will send udp datagram every second.                                                                                                                       |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
 |          | _Enter your response here..._                                                                                                                                           |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
