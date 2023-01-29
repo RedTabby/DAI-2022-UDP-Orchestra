@@ -104,7 +104,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 ## Task 1: design the application architecture and protocols
 
 | #        | Topic                                                                                                                                                                   |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | _Insert your diagram here..._                                                                                                                                           |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
@@ -118,46 +118,46 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 
 ## Task 2: implement a "musician" Node.js application
 
-| #        | Topic                                                                              |
-|----------|------------------------------------------------------------------------------------|
-| Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-|          | _Enter your response here..._                                                      |
-| Question | What is **npm**?                                                                   |
-|          | _Enter your response here..._                                                      |
-| Question | What is the `npm install` command?                                                 |
-|          | _Enter your response here..._                                                      |
-| Question | How can we use the `https://www.npmjs.com/` web site?                              |
-|          | _Enter your response here..._                                                      |
-| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?              |
-|          | _Enter your response here..._                                                      |
-| Question | In Node.js, how can we execute a function on a **periodic** basis?                 |
-|          | we can create async function. After we just have to call it in an setintervalle function setInterval and choose the frequence of call. |
-| Question | In Node.js, how can we **emit UDP datagrams**?                                     |
-|          | _Enter your response here..._                                                      |
-| Question | In Node.js, how can we **access the command line arguments**?                      |
-|          | with the process function.                                                         |
+| #        | Topic                                                                                                                                        |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                          |
+|          | With the command : JSON.stringify                                                                                                            |
+| Question | What is **npm**?                                                                                                                             |
+|          | npm is the package manager for the Node.It puts modules in place so that node can find them, and manages dependency conflicts intelligently. |
+| Question | What is the `npm install` command?                                                                                                           |
+|          | it's allow to install packages in our case JSON.                                                                                             |
+| Question | How can we use the `https://www.npmjs.com/` web site?                                                                                        |
+|          | We can use it to search for packages among the web.                                                                                          |
+| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                        |
+|          | _Enter your response here..._                                                                                                                |
+| Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                           |
+|          | we can create an async function. After we just have to call it in an setinterval function and choose the frequency of call.                  |
+| Question | In Node.js, how can we **emit UDP datagrams**?                                                                                               |
+|          | We use a datagram socket and the method send with the right port and address to emit the UDP Datagrams                                       |
+| Question | In Node.js, how can we **access the command line arguments**?                                                                                |
+|          | with the process function.                                                                                                                   |
 
 ## Task 3: package the "musician" app in a Docker image
 
-| #        | Topic                                                                               |
-| -------- | ----------------------------------------------------------------------------------- |
-| Question | How do we **define and build our own Docker image**?                                |
-|          | _Enter your response here..._                                                       |
-| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                        |
-|          | _Enter your response here..._                                                       |
-| Question | After building our Docker image, how do we use it to **run containers**?            |
-|          | _Enter your response here..._                                                       |
-| Question | How do we get the list of all **running containers**?                               |
-|          | _Enter your response here..._                                                       |
-| Question | How do we **stop** and **kill** one running container?                              |
-|          | _Enter your response here..._                                                       |
-| Question | How can we check that our running containers are effectively sending UDP datagrams? |
-|          | _Enter your response here..._                                                       |
+| #        | Topic                                                                                                     |
+|----------|-----------------------------------------------------------------------------------------------------------|
+| Question | How do we **define and build our own Docker image**?                                                      |
+|          | we define it with a Dokerfill and we build it with the command : `docker build -t dai/musician .`         |
+| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                                              |
+|          | We can use it to retrieve the command line arguments given to docker and transmit them to our js program. |
+| Question | After building our Docker image, how do we use it to **run containers**?                                  |
+|          | We use the docker run command : `docker run -d dai/musician piano` , for example.                         |
+| Question | How do we get the list of all **running containers**?                                                     |
+|          | with the docker command : `docker ps`                                                                     |
+| Question | How do we **stop** and **kill** one running container?                                                    |
+|          | With the docker command : `docker stop {container ID}` or `docker kill {container ID}`                    |
+| Question | How can we check that our running containers are effectively sending UDP datagrams?                       |
+|          | _Enter your response here..._                                                                             |
 
 ## Task 4: implement an "auditor" Node.js application
 
 | #        | Topic                                                                                              |
-| -------- | -------------------------------------------------------------------------------------------------- |
+|----------|----------------------------------------------------------------------------------------------------|
 | Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                            |
 |          | _Enter your response here..._                                                                      |
 | Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? |
@@ -172,7 +172,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 ## Task 5: package the "auditor" app in a Docker image
 
 | #        | Topic                                                                                |
-| -------- | ------------------------------------------------------------------------------------ |
+|----------|--------------------------------------------------------------------------------------|
 | Question | How do we validate that the whole system works, once we have built our Docker image? |
 |          | _Enter your response here..._                                                        |
 
