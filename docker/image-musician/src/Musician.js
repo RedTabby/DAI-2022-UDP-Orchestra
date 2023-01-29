@@ -39,7 +39,7 @@ const interval = 1000;
  * @returns {Promise<void>}
  */
 const sendUDPData = async function(message, socket, payload){
-    socket.send (message, 0, message.length , protocol.PROTOCOL_PORT , protocol.PROTOCOL_MULTICAST_ADDRESS ,
+    socket.send (message, 0, message.length , 4005 , "239.255.22.5" ,
         function(err, bytes) {
             console.log("Sending payload: " + payload + " via port " + socket.address().port);
         });
@@ -65,7 +65,7 @@ if(process.argv.length < 3){
 // Let's create a datagram socket. We will use it to send our UDP datagrams
     const s = dgram.createSocket('udp4');
 
-    var payload = JSON.stringify(sound);
+    const payload = JSON.stringify(sound);
     message = new Buffer(payload);
 
 // Call the async function.
