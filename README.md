@@ -112,7 +112,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
 |          | _Enter your response here..._                                                                                                                                           |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | _Enter your response here..._                                                                                                                                           |
+|          | we have to transmit the uuid and the sound of the instrument.                                                                                                           |
 | Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
 |          | _Enter your response here..._                                                                                                                                           |
 
@@ -129,7 +129,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | Question | How can we use the `https://www.npmjs.com/` web site?                                                                                        |
 |          | We can use it to search for packages among the web.                                                                                          |
 | Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                        |
-|          | _Enter your response here..._                                                                                                                |
+|          | with the uuid module. we just have to import it with `npm install uuid` and use the function uuid.v4.                                        |
 | Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                           |
 |          | we can create an async function. After we just have to call it in an setinterval function and choose the frequency of call.                  |
 | Question | In Node.js, how can we **emit UDP datagrams**?                                                                                               |
