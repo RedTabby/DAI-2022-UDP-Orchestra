@@ -6,5 +6,6 @@ WORKDIR /opt/app
 RUN npm install
 
 EXPOSE 2205
+EXPOSE 4005
 
 CMD ["node", "/opt/app/index.js"]
