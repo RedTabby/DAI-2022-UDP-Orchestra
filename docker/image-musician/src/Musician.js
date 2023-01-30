@@ -1,6 +1,6 @@
 /**
  * Musician.js
- * @author Rachel Leupi
+ * @author Rachel Leupi / Michael Gogniat
  */
 
 //___________________________________________________________Function
@@ -64,6 +64,7 @@ if(process.argv.length < 3){
 
 // Let's create a datagram socket. We will use it to send our UDP datagrams
     const s = dgram.createSocket('udp4');
+	s.bind(4005, "239.255.22.5");
 
 // Create a UUID
     const { v4: uuidv4 } = require('uuid');
