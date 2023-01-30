@@ -102,19 +102,18 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRvqX8).
 
 ## Task 1: design the application architecture and protocols
-
-| #        | Topic                                                                                                                                                                   |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-|          | _Insert your diagram here..._                                                                                                                                           |
-| Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
-|          | the musician will send udp datagram every second.                                                                                                                       |
-| Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
-|          | _Enter your response here..._                                                                                                                                           |
-| Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | we have to transmit the uuid and the sound of the instrument.                                                                                                           |
-| Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
-|          | _Enter your response here..._                                                                                                                                           |
+| #        | Topic                                                                                                                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands?                    |
+|          | ![image](images/schéma.jpg)                                                                                                                                                                |
+| Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                                       |
+|          | the musician will send udp datagram every second.                                                                                                                                          |
+| Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                                           |
+|          | The auditor , it add or update data to musicians map                                                                                                                                       |
+| Question | What **payload** should we put in the UDP datagrams?                                                                                                                                       |
+|          | we have to transmit the uuid and the sound of the instrument.                                                                                                                              |
+| Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                                   |
+|          | We use json structure do communicate data between the musicians and the auditor every second and a map to store data in the auditor, the map is updated when the auditor receive new data. |
 
 ## Task 2: implement a "musician" Node.js application
 
@@ -139,42 +138,42 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 
 ## Task 3: package the "musician" app in a Docker image
 
-| #        | Topic                                                                                                     |
-|----------|-----------------------------------------------------------------------------------------------------------|
-| Question | How do we **define and build our own Docker image**?                                                      |
-|          | we define it with a Dokerfill and we build it with the command : `docker build -t dai/musician .`         |
-| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                                              |
-|          | We can use it to retrieve the command line arguments given to docker and transmit them to our js program. |
-| Question | After building our Docker image, how do we use it to **run containers**?                                  |
-|          | We use the docker run command : `docker run -d dai/musician piano` , for example.                         |
-| Question | How do we get the list of all **running containers**?                                                     |
-|          | with the docker command : `docker ps`                                                                     |
-| Question | How do we **stop** and **kill** one running container?                                                    |
-|          | With the docker command : `docker stop {container ID}` or `docker kill {container ID}`                    |
-| Question | How can we check that our running containers are effectively sending UDP datagrams?                       |
-|          | _Enter your response here..._                                                                             |
+| #        | Topic                                                                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Question | How do we **define and build our own Docker image**?                                                                                       |
+|          | we define it with a Dokerfill and we build it with the command : `docker build -t dai/musician .`                                          |
+| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                                                                               |
+|          | We can use it to retrieve the command line arguments given to docker and transmit them to our js program.                                  |
+| Question | After building our Docker image, how do we use it to **run containers**?                                                                   |
+|          | We use the docker run command : `docker run -d dai/musician piano` , for example.                                                          |
+| Question | How do we get the list of all **running containers**?                                                                                      |
+|          | with the docker command : `docker ps`                                                                                                      |
+| Question | How do we **stop** and **kill** one running container?                                                                                     |
+|          | With the docker command : `docker stop {container ID}` or `docker kill {container ID}`                                                     |
+| Question | How can we check that our running containers are effectively sending UDP datagrams?                                                        |
+|          | With a log giving information when it send a datagram (console.log("Sending payload: " + payload + " via port " + socket.address().port);) |
 
 ## Task 4: implement an "auditor" Node.js application
 
-| #        | Topic                                                                                              |
-|----------|----------------------------------------------------------------------------------------------------|
-| Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                            |
-|          | _Enter your response here..._                                                                      |
-| Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? |
-|          | _Enter your response here..._                                                                      |
-| Question | How can we use the `Day.js` npm module to help us with **date manipulations** and formatting?      |
-|          | _Enter your response here..._                                                                      |
-| Question | When and how do we **get rid of inactive players**?                                                |
-|          | _Enter your response here..._                                                                      |
-| Question | How do I implement a **simple TCP server** in Node.js?                                             |
-|          | _Enter your response here..._                                                                      |
+| #        | Topic                                                                                                                                                                                  |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                                                                                                                |
+|          | with the function .on('listening' ... ) after joining Multicast group                                                                                                                  |
+| Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?                                                                                     |
+|          | created with `let musicianList = new Map();` and we can add entry with `musicianList.set(data.uuid, newValue);`                                                                        |
+| Question | How can we use the `Day.js` npm module to help us with **date manipulations** and formatting?                                                                                          |
+|          | We use Date.toISOString() to format the activeSince Datetime and a simple subtraction with 2 Datetime to check if a musician is inactive                                               |
+| Question | When and how do we **get rid of inactive players**?                                                                                                                                    |
+|          | When the Tcp client ask to know who are the musicians, before answering we check in map for each musician if `activeLast` is too old and if it is we remove the musicians from the map |
+| Question | How do I implement a **simple TCP server** in Node.js?                                                                                                                                 |
+|          | We have decided to use `net` as module and a socket listening on localhost:2205                                                                                                        |
 
-## Task 5: package the "auditor" app in a Docker image
+## Task 5: package the "auditor" app in a Docker image`
 
-| #        | Topic                                                                                |
-|----------|--------------------------------------------------------------------------------------|
-| Question | How do we validate that the whole system works, once we have built our Docker image? |
-|          | _Enter your response here..._                                                        |
+| #        | Topic                                                                                     |
+|----------|-------------------------------------------------------------------------------------------|
+| Question | How do we validate that the whole system works, once we have built our Docker image?      |
+|          | We can run the validation script and check if everything is correct in the file check.log |
 
 ## Constraints
 
